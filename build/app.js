@@ -22,14 +22,14 @@ exports.app = (0, express_1.default)();
 exports.app.use(express_1.default.json({ limit: "50mb" }));
 // cookie parse
 exports.app.use((0, cookie_parser_1.default)());
+// origin: process.env.ORIGIN,
 // cors =>
 exports.app.use((0, cors_1.default)({
-    // origin: process.env.ORIGIN,
-    origin: ["https://elearning-front-end.vercel.app"],
+    origin: ["https://elearning-ui-frontend.vercel.app"],
     credentials: true
 }));
 exports.app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://elearning-front-end.vercel.app");
+    res.header("Access-Control-Allow-Origin", "https://elearning-ui-frontend.vercel.app");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     if (req.method === "OPTIONS") {
         res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");

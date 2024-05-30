@@ -18,17 +18,17 @@ app.use(express.json({ limit: "50mb" }));
 
 // cookie parse
 app.use(cookieParser());
-
+// origin: process.env.ORIGIN,
 // cors =>
 app.use(
   cors({
-    // origin: process.env.ORIGIN,
-    origin:["https://elearning-front-end.vercel.app"],
+    
+    origin:["https://elearning-ui-frontend.vercel.app"],
     credentials:true
   })
 );
 app.use((req:Request, res:Response, next:NextFunction) => {
-  res.header("Access-Control-Allow-Origin", "https://elearning-front-end.vercel.app");
+  res.header("Access-Control-Allow-Origin", "https://elearning-ui-frontend.vercel.app");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   if (req.method === "OPTIONS") {
     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
